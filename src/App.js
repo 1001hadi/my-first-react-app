@@ -17,7 +17,6 @@ function Todo({ todo, index, completeTodo, deleteTodo}) {
   )
 }
 
-
 function TodoForm({addTodo}) {
   const[value, setValue] = useState('');
 
@@ -33,7 +32,7 @@ function TodoForm({addTodo}) {
       <input type="text"
         className="input"
         value={value}
-        placeholder="Add todos..." 
+        placeholder="Enter todos..." 
         onChange={e => setValue(e.target.value)} />
     </form>
   )
@@ -61,14 +60,14 @@ function App() {
 
   return (
     <div className="app">
-      <div>
+      <div className="header">
         <HeadeUnit/>
       </div>
       <div className="todo-list">
+        <TodoForm addTodo={addTodo} />
         {todos.map((todo, index) => (
           <Todo key={index} index={index} todo={todo} completeTodo={completeTodo} deleteTodo={deleteTodo}/>
         ))}
-        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   )
